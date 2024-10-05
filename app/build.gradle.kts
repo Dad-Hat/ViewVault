@@ -1,11 +1,16 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.kotlinkapt)
 }
 
 android {
     namespace = "com.example.viewvault"
     compileSdk = 34
+
+    buildFeatures{
+        viewBinding = true
+    }
 
     defaultConfig {
         applicationId = "com.example.viewvault"
@@ -36,6 +41,16 @@ android {
 }
 
 dependencies {
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+
+    kapt("androidx.room:room-compiler:$room_version")
+
+    val nav_version = "2.8.2"
+    implementation("androidx.navigation:navigation-fragment:$nav_version")
+    implementation("androidx.navigation:navigation-ui:$nav_version")
+    implementation("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
