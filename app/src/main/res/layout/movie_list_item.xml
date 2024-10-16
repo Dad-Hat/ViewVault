@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/delete_icon"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf=""/>
+            app:layout_constraintBottom_toTopOf="@id/textViewRating"/>
 
         <TextView
             android:id="@+id/textViewRating"
