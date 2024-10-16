@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">The View Vault</string>
+    <string name="add_a_movie">Add a Movie!</string>
+    <string name="submit">SUBMIT</string>
 </resources>
