@@ -9,7 +9,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MovieViewModel : ViewModel() {
+    private var _addMovie = MutableLiveData<String>()
     private var _delMovie = MutableLiveData<String>()
+
+    val addMovie
+        get() = _addMovie
 
     val delMovie
         get() = _delMovie
@@ -30,8 +34,9 @@ class MovieViewModel : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 AppModule.database.movieDao().insertMovie(movie)
+                _addMovie.postValue("success")
             } catch (ex: Exception){
-
+                _addMovie.postValue("failure")
             }
         }
     }
