@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/movieDetailCard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginVertical="8dp"
+    android:layout_marginVertical="4dp"
+    app:cardBackgroundColor="@color/white"
+    app:strokeColor="@color/black"
     app:cardCornerRadius="10dp"
     app:cardElevation="0dp"
     app:cardPreventCornerOverlap="true">
@@ -20,11 +23,13 @@
             android:id="@+id/textViewMovieName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:text="Movie Name Here"
+            android:fontFamily="monospace"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/deleteButton"
             app:layout_constraintBottom_toTopOf="@id/textViewReleaseDate"
-            android:text="Movie Name Here"/>
+            />
 
         <ImageView
             android:id="@+id/deleteButton"
@@ -32,24 +37,28 @@
             android:layout_height="wrap_content"
             android:src="@drawable/delete_icon"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/textViewRating"/>
-
-        <TextView
-            android:id="@+id/textViewRating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rating: 00/30"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/cardDivider"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+            app:layout_constraintBottom_toTopOf="@id/textViewSeenDate"/>
 
         <TextView
             android:id="@+id/textViewReleaseDate"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Release Date: 01/01/2000"
+            android:fontFamily="monospace"
             app:layout_constraintTop_toBottomOf="@id/textViewMovieName"
+            app:layout_constraintStart_toStartOf="parent"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+        <TextView
+            android:id="@+id/textViewSeenDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seen On: 01/01/2024"
+            android:fontFamily="monospace"
+            android:layout_marginTop="4dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            app:layout_constraintBottom_toTopOf="@id/cardDivider"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <com.google.android.material.divider.MaterialDivider
             android:id="@+id/cardDivider"
@@ -59,13 +68,16 @@
             app:layout_constraintTop_toBottomOf="@id/textViewReleaseDate"/>
 
         <TextView
+            android:id="@+id/textViewRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Seen On: 01/01/2024"
-            android:layout_marginTop="4dp"
-            app:layout_constraintTop_toBottomOf="@id/cardDivider"
+            android:text="Rating: 00/30"
+            android:fontFamily="monospace"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/cardDivider"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
