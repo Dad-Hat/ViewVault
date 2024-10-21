@@ -1,9 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.ViewVault" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/dark_gray</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/light_dark_gray</item>
+        <item name="colorOnSecondary">@color/light_gray</item>
+        <item name="floatingActionButtonStyle">@style/ThemeOverlay.App.FloatingActionButton</item>
+    </style>
+    <style name="Theme.ViewVault" parent="Base.Theme.ViewVault" />
+    
+    <style name="Widget.App.FloatingActionButton" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.FloatingActionButton</item>
     </style>
 
-    <style name="Theme.ViewVault" parent="Base.Theme.ViewVault" />
+    <style name="ThemeOverlay.App.FloatingActionButton" parent="">
+        <item name="colorContainer">@color/dark_gray</item>
+        <item name="colorOnContainer">@color/white</item>
+    </style>
 </resources>
