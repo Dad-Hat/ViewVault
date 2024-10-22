@@ -12,6 +12,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.viewvault.databinding.AddMovieFragmentBinding
 import com.example.viewvault.model.MovieModel
+import com.example.viewvault.utils.Util
 import com.example.viewvault.viewmodel.MovieViewModel
 import java.util.Calendar
 
@@ -43,48 +44,23 @@ class AddMovieFragment: Fragment() {
 
     private fun setListeners() {
         binding.releaseDateButton.setOnClickListener {
-            val c = Calendar.getInstance()
-
-            val year = c.get(Calendar.YEAR)
-            val month = c.get(Calendar.MONTH)
-            val day = c.get(Calendar.DAY_OF_MONTH)
-
-            val datePickerDialog = DatePickerDialog(
-                requireContext(),
-                {
-                    view, year, monthOfYear, dayOfMonth ->
-                    val dat = ((monthOfYear + 1).toString() + "-" + dayOfMonth + "-" + year)
-                    binding.textViewReleaseDate.setText(dat)
-                },
-                year,
-                month,
-                day
-            )
-            datePickerDialog.show()
+            Util.displayCalendar(requireContext(), binding.textViewReleaseDate)
         }
-
         binding.seenDateButton.setOnClickListener {
-            val c = Calendar.getInstance()
-
-            val year = c.get(Calendar.YEAR)
-            val month = c.get(Calendar.MONTH)
-            val day = c.get(Calendar.DAY_OF_MONTH)
-
-            val datePickerDialog = DatePickerDialog(
-                requireContext(),
-                {
-                        view, year, monthOfYear, dayOfMonth ->
-                    val dat = ((monthOfYear + 1).toString() + "-" + dayOfMonth + "-" + year)
-                    binding.textViewSeenDate.setText(dat)
-                },
-                year,
-                month,
-                day
-            )
-            datePickerDialog.show()
+            Util.displayCalendar(requireContext(), binding.textViewSeenDate)
         }
 
         binding.submitButton.setOnClickListener {
+            inputChecker()
+        }
+
+        binding.closeButton.setOnClickListener{
+            navController.popBackStack()
+        }
+    }
+
+    private fun inputChecker(){
+        if (boxChecker()){
             val movieTitle = binding.editTextMovieTitle.text.toString()
             val movieSum = binding.editTextMovieSummary.text.toString()
             val rating = binding.ratingPicker.value
@@ -95,10 +71,12 @@ class AddMovieFragment: Fragment() {
             movieViewModel.addMovie(newMovie)
             navController.popBackStack()
         }
+    }
 
-        binding.closeButton.setOnClickListener{
-            navController.popBackStack()
-        }
+    private fun boxChecker(): Boolean{
+        var checker = true
+        if (!Util.hasText(binding.editTextMovieTitle)) checker = false
+        return checker
     }
 
 }

@@ -51,4 +51,15 @@ class MovieViewModel : ViewModel() {
             }
         }
     }
+
+    fun updateMovieDetails(newMovie: MovieModel){
+        viewModelScope.launch (Dispatchers.IO){
+            try{
+                AppModule.database.movieDao().updateMovie(newMovie)
+                _addMovie.postValue("success")
+            }catch (ex: Exception){
+                _addMovie.postValue("failure")
+            }
+        }
+    }
 }

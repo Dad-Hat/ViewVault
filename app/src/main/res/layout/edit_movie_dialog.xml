@@ -103,13 +103,13 @@
         android:text="Seen"
         android:fontFamily="monospace"
         android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@id/textViewSeenDate"
-        app:layout_constraintEnd_toEndOf="@id/textViewSeenDate"
-        app:layout_constraintBottom_toTopOf="@id/textViewSeenDate"
+        app:layout_constraintStart_toStartOf="@id/seenDateTextView"
+        app:layout_constraintEnd_toEndOf="@id/seenDateTextView"
+        app:layout_constraintBottom_toTopOf="@id/seenDateTextView"
         />
 
     <TextView
-        android:id="@+id/textViewSeenDate"
+        android:id="@+id/seenDateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10/10/2024"
@@ -143,6 +143,7 @@
         app:layout_constraintTop_toBottomOf="@id/movieSummaryLayout"/>
 
     <Button
+        android:id="@+id/updateDetailsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Update Details"

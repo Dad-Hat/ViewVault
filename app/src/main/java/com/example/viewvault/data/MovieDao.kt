@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.example.viewvault.model.MovieModel
 
 @Dao
@@ -19,4 +20,7 @@ interface MovieDao {
 
     @Delete
     fun deleteMovie(movieModel: MovieModel)
+
+    @Update
+    fun updateMovie(movieModel: MovieModel)
 }

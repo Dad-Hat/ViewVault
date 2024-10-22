@@ -13,6 +13,5 @@ data class MovieModel (
     @ColumnInfo(name = "release_date") val releaseDate: String,
     @PrimaryKey(autoGenerate = true) val id: Int = 0
 ){
-    val titleForList: String
-        get() = title
+
 }
