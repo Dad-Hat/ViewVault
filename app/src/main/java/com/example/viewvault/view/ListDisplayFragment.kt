@@ -71,14 +71,25 @@ class ListDisplayFragment : Fragment(), MovieListener {
 
     private fun setMovieListObserver(){
         movieViewModel.movieList.observe(viewLifecycleOwner){
+            binding.progressIndicator.visibility = View.VISIBLE
+            binding.movieRecycler.visibility = View.GONE
+
             Handler(Looper.getMainLooper()).postDelayed({
-                 adapter.updateList(it)
+                adapter.updateList(it)
+                binding.progressIndicator.visibility = View.GONE
+                binding.movieRecycler.visibility = View.VISIBLE
             }, 1000)
         }
     }
 
     override fun onMovieItemClick(movieModel: MovieModel){
         movieViewModel.delMovie(movieModel)
+    }
+
+    override fun editMovieDetails(movieModel: MovieModel) {
+        MovieDetailsDialog(movieModel){
+            refreshCurrentFragment()
+        }.show(requireActivity().supportFragmentManager, "dialog")
     }
 
     private fun setDelMovieObserver(){
@@ -94,5 +105,11 @@ class ListDisplayFragment : Fragment(), MovieListener {
                 }
             }
         }
+    }
+
+    private fun refreshCurrentFragment(){
+        val id = navController.currentDestination?.id
+        navController.popBackStack(id!!, true)
+        navController.navigate(id)
     }
 }

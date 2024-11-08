@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/dark_dark_gray"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <TextView
+        android:id="@+id/movieDetailsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Movie Details"
+        android:fontFamily="monospace"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/movieTitleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Movie Title"
+        android:textColorHint="@color/white"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="6dp"
+        app:boxBackgroundColor="@color/light_dark_gray"
+        app:layout_constraintTop_toBottomOf="@+id/movieDetailsText">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/movieTitleEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/movieSummaryLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Movie Summary"
+        android:textColorHint="@color/white"
+        android:layout_marginTop="6dp"
+        app:boxBackgroundColor="@color/light_dark_gray"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintTop_toBottomOf="@id/movieTitleLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/movieSummaryEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="3"
+            android:fontFamily="monospace"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/releaseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Released"
+        android:fontFamily="monospace"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@id/releaseDateTextView"
+        app:layout_constraintEnd_toEndOf="@id/releaseDateTextView"
+        app:layout_constraintBottom_toTopOf="@id/releaseDateTextView"/>
+
+    <TextView
+        android:id="@+id/releaseDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10/10/2024"
+        android:fontFamily="monospace"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/movieSummaryLayout"
+        app:layout_constraintStart_toEndOf="@id/editReleaseButton"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"/>
+
+    <ImageView
+        android:id="@+id/editReleaseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/edit_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/movieSummaryLayout"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        app:tint="@color/white"
+        />
+
+    <TextView
+        android:id="@+id/seenText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seen"
+        android:fontFamily="monospace"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@id/seenDateTextView"
+        app:layout_constraintEnd_toEndOf="@id/seenDateTextView"
+        app:layout_constraintBottom_toTopOf="@id/seenDateTextView"
+        />
+
+    <TextView
+        android:id="@+id/seenDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10/10/2024"
+        android:fontFamily="monospace"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintTop_toBottomOf="@id/releaseDateTextView"
+        app:layout_constraintStart_toEndOf="@id/editSeenButton"
+        />
+
+    <ImageView
+        android:id="@+id/editSeenButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/edit_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editReleaseButton"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        app:tint="@color/white"/>
+
+    <NumberPicker
+        android:id="@+id/ratingPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/movieSummaryLayout"/>
+
+    <Button
+        android:id="@+id/updateDetailsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Details"
+        android:fontFamily="monospace"
+        android:backgroundTint="@color/light_dark_gray"
+        app:layout_constraintTop_toBottomOf="@id/ratingPicker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="6dp"
+        android:layout_marginHorizontal="20dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

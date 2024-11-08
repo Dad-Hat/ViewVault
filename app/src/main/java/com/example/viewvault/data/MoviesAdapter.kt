@@ -27,7 +27,8 @@ class MoviesAdapter(
             return FilterResults().apply { values = filteredList }
         }
         override fun publishResults(input: CharSequence, results: FilterResults) {
-            submitList(results.values as List<MovieModel>)
+            val moviesList = results.values as List<MovieModel>
+            submitList(moviesList.toMutableList())
         }
     }
 
@@ -43,7 +44,7 @@ class MoviesAdapter(
 
     fun updateList(newList: List<MovieModel>){
         this.moviesList = newList
-        submitList(newList)
+        submitList(newList.toList())
     }
 
     inner class ViewHolder(
@@ -58,6 +59,9 @@ class MoviesAdapter(
             binding.textViewReleaseDate.text = "Released: " + movieModel.releaseDate
             binding.textViewRating.text = "Rating: " + movieModel.rating.toString() + "/30"
 
+            binding.movieDetailCard.setOnClickListener{
+                movieListener.editMovieDetails(movieModel)
+            }
         }
     }
 
