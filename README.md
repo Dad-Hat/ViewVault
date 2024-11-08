@@ -22,7 +22,7 @@
   <b>Add Movie Fragment</b>
   <br />
   <br />
-  <img width = 400 src="https://github.com/user-attachments/assets/e187bb6c-caec-4c25-aa9a-137046382ebc">
+  <img width = 400 src="https://github.com/user-attachments/assets/44358519-bebf-43fd-8fa3-f48d9d01b87c">
 </p>
 
 <p align="center">
